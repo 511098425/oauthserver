@@ -1,10 +1,10 @@
 <p align="center">
 <a href="http://www.oracle.com/technetwork/java/javase/overview/index.html"><img src="https://img.shields.io/badge/language-java%208.0-orange.svg"></a>
 <a href="https://www.jetbrains.com/idea/"><img src="https://img.shields.io/badge/platform-jetbrains-green.svg"></a>
-<a href="http://projects.spring.io/spring-boot/"><img src="https://img.shields.io/badge/SpringBoot-1.5.10-990066.svg"></a>
+<a href="http://projects.spring.io/spring-boot/"><img src="https://img.shields.io/badge/SpringBoot-1.5.14-990066.svg"></a>
 <img src="https://img.shields.io/badge/Database-MySQL%7CPostgreSQL-brightgreen.svg">
 <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg">
-<img src="https://img.shields.io/badge/release-1.1.0-brightgreen.svg">
+<img src="https://img.shields.io/badge/release-1.1.1-brightgreen.svg">
 
 </p>
 
@@ -26,6 +26,9 @@ oauthserver是一个基于Spring Boot Oauth2的完整的独立的Oauth2 Server�
 7. 自定义Oauth2Exception异常返回的json信息。
 
 ## 更新日志
+### 2018-07-07
+- 升级Spring Boot版本从1.5.13.RELEASE到1.5.14.RELEASE；
+- 修复检查的access_token无法识别时，返回中文message。
 ### v1.1.0(2018-06-01)  
 - 自定义Oauth2Exception异常返回的json信息。
 ### v1.0.3  
@@ -143,7 +146,7 @@ status=400，返回的json数据：
 ``` json
 {
     "code": 400,
-    "message": "Token was not recognised",
+    "message": "Token无法识别",
     "data": null
 }
 ```
@@ -169,7 +172,7 @@ status=401，返回的json数据：
 ``` json
 {
     "code": 401,
-    "msg": "用户已失效",
+    "message": "用户已失效",
     "data": null
 }
 ```
