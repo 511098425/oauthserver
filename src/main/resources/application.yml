@@ -1,8 +1,12 @@
+# ----------------------------------------
+# CORE PROPERTIES
+# ----------------------------------------
+debug: false # Enable debug logs.
+trace: false # Enable trace logs.
+
 server:
   port: 8182
-security:
-  basic:
-    enabled: false
+
 spring:
   datasource:
 # PostgreSQL连接信息
@@ -16,27 +20,39 @@ spring:
 #    username: ENC(YiYjVwTulDGN//YaB3KbuA==) #明文root
 #    password: ENC(9oaIJkFgGSDFaHH3OXY63RHWQ+amDmiJ) #明文19941017
     type: com.alibaba.druid.pool.DruidDataSource
+    
+  banner:
+    charset: UTF-8
+    location: classpath:banner.txt
+
 logging:
   level:
     org:
       springframework:
         web: INFO
     Hibernate: ERROR
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
-  instance:
-    prefer-ip-address: true
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:8761/eureka/
+#  instance:
+#    prefer-ip-address: true
 
 jasypt:
   encryptor:
     password: 19941017
+    property:
+      prefix: "ENC("
+      suffix: ")"
 
 info:
   app:
+    encoding: @project.build.sourceEncoding@
     name: @project.name@
     description: @project.description@
+    java:
+      source: @java.version@
+      target: @java.version@
   build:
     groupId: @project.groupId@
     artifact: @project.artifactId@
@@ -58,5 +74,3 @@ management:
   info:
     git:
       mode: full
-  security:
-    enabled: false
