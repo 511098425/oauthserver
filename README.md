@@ -42,6 +42,9 @@ oauthserver是一个基于Spring Boot Oauth2的完整的独立的Oauth2 Server�
    </tr> 
 </table>
 
+## 升级指南
+oauthserver从v1.x升级到v2.x，需要修改数据表oauth_client_details的clicent_secret列的值，从明文`secret`改为经过Scrypt加密的字符串`$2a$11$uBcjOC6qWFpxkQJtPyMhPOweH.8gP3Ig1mt27mGDpBncR7gErOuF6`。
+
 ## 更新日志
 ### v2.0.0.alpha(2018-07-16)
 - 升级Spring Boot版本从1.5.14.RELEASE到2.0.3.RELEASE。
